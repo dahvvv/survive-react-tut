@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dahvvv/survive-react-tut/issues"
   },
-  "homepage": "https://github.com/dahvvv/survive-react-tut"
+  "homepage": "https://github.com/dahvvv/survive-react-tut",
+  "devDependencies": {
+    "webpack": "^1.12.14"
+  }
 }
