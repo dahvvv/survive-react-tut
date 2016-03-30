@@ -1,8 +1,6 @@
-var component = require('./component');
+var React = require('react');
+var ReactDOM = require('react-dom');
+var App = require('./components/App');
 require('./main.css');
 
-var app = document.createElement('div');
-
-app.appendChild(component());
-
-document.body.appendChild(app);
+ReactDOM.render(<App />, document.getElementById('app'));
