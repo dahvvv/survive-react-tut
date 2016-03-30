@@ -14,6 +14,17 @@ var common = {
 	output: {
 		path: PATHS.build,
 		filename: 'bundle.js'
+	},
+	module: {
+		loaders: [
+			{
+				test: /\.css$/,
+				// these will get processed right to left.  so css-loader happens first, then style-loader
+				loaders: ['style', 'css'],
+				// Include accepts either a path or an array of paths
+				include: PATHS.app
+			}
+		]
 	}
 };
 
