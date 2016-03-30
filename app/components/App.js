@@ -1,4 +1,5 @@
 var React = require('react');
+var Notes = require('./Notes');
 var uuid = require('node-uuid');
 
 var App = React.createClass({
@@ -6,41 +7,33 @@ var App = React.createClass({
 		return {
 			notes: [
 				{
-					id:   uuid.v4(),
-					task: 'Learn Webpack'
+					task: 'Learn Webpack',
+					id:   uuid.v4()
 				},
 				{
-					id:   uuid.v4(),
-					task: 'Learn React'
+					task: 'Learn React',
+					id:   uuid.v4()
 				},
 				{
-					id:   uuid.v4(),
-					task: 'Do Laundry'
+					task: 'Do Laundry',
+					id:   uuid.v4()
 				}
 			]
 		};
 	},
 	addNote: function () {
-		var newNote = {
-			id: uuid.v4(),
-			task: 'New Task'
-		};
 		this.setState({
-			notes: this.state.notes.concat([newNote])
+			notes: this.state.notes.concat([{
+				task: 'New Task',
+				id:   uuid.v4()
+			}])
 		});
 	},
 	render: function () {
-		var listItems = this.state.notes.map(function (note) {
-			return (
-				<li key={note.id}>
-					{note.task}
-				</li>
-			);
-		});
 		return (
 			<div>
 				<button onClick={this.addNote}>+</button>
-				<ul>{listItems}</ul>
+				<Notes notes={this.state.notes} />
 			</div>
 		);
 	}

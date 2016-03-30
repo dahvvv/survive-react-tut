@@ -1,7 +1,7 @@
 var React = require('react');
 
-function Note () {
-	return <div>Dang</div>;
+function Note (props) {
+	return <div>{props.text}</div>;
 }
 
 module.exports = Note;
