@@ -20,6 +20,15 @@ var App = React.createClass({
 			]
 		};
 	},
+	addNote: function () {
+		var newNote = {
+			id: uuid.v4(),
+			task: 'New Task'
+		};
+		this.setState({
+			notes: this.state.notes.concat([newNote])
+		});
+	},
 	render: function () {
 		var listItems = this.state.notes.map(function (note) {
 			return (
@@ -30,6 +39,7 @@ var App = React.createClass({
 		});
 		return (
 			<div>
+				<button onClick={this.addNote}>+</button>
 				<ul>{listItems}</ul>
 			</div>
 		);
