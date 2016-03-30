@@ -1,5 +1,7 @@
 var React = require('react');
 
-var Note = <div>Learn Webpack</div>;
+function Note () {
+	return <div>Learn Webpack</div>;
+}
 
 module.exports = Note;
