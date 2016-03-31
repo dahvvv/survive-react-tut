@@ -1,10 +1,13 @@
 var React = require('react');
 var Note = require('./Note');
-var uuid = require('node-uuid');
 
 function Notes (props) {
 	var notes = props.notes.map(function (note) {
-		return <li key={uuid.v4()}>{note.task}</li>;
+		return (
+			<li key={note.id}>
+				<Note task={note.task} />
+			</li>
+		);
 	});
 	return <ul>{notes}</ul>;
 }
