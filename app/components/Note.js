@@ -2,28 +2,22 @@ var React = require('react');
 
 var Note = React.createClass({
 	getInitialState: function () {
-		return {
-			editing: false,
-			inputValue: this.props.task
-		};
+		return { editing: false };
 	},
 	edit: function () {
 		this.setState({ editing: true });
+	},
+	editSubmit: function () {
+		this.setState({ editing: false });
 	},
 	handleInput: function (e) {
 		this.setState({ inputValue: e.target.value });
 	},
 	render: function () {
 		if (this.state.editing) {
-			return <input type="text" 
-									value={this.state.inputValue} 
-									onChange={this.handleInput} />;
+			return this.renderEdit();
 		} else {
-			return (
-				<div onClick={this.edit}>
-					{this.props.task}
-				</div>
-			);
+			return this.renderNote();
 		}
 	}
 });
