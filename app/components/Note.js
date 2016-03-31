@@ -15,14 +15,9 @@ var Note = React.createClass({
 	},
 	render: function () {
 		if (this.state.editing) {
-			return (
-				<div>
-					<h1>Edit the Note!</h1>
-					<input type="text" 
+			return <input type="text" 
 									value={this.state.inputValue} 
-									onChange={this.handleInput} />
-				</div>
-			);
+									onChange={this.handleInput} />;
 		} else {
 			return (
 				<div onClick={this.edit}>
