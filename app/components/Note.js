@@ -34,7 +34,16 @@ var Note = React.createClass({
 			onKeyPress={this.checkEnter} />;
 	},
 	renderNote: function () {
-		return <div onClick={this.edit}>{this.props.task}</div>;
+		var onDelete = this.props.onDelete;
+		return (
+			<div onClick={this.edit}>
+				<span>{this.props.task}</span>
+				{ onDelete ? this.renderDelete() : null }
+			</div>
+		);
+	},
+	renderDelete: function () {
+		return <button onClick={this.props.onDelete}>x</button>;
 	}
 });
 
